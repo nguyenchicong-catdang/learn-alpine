@@ -1,0 +1,10 @@
+define NGINX_CONF
+server {
+    listen 80;
+    root /var/www/html;
+    index index.html;
+    location / {
+        try_files $$uri $$uri/ =404;
+    }
+}
+endef

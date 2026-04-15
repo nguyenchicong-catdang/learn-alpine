@@ -1,0 +1,1 @@
+apk update && apk add make
