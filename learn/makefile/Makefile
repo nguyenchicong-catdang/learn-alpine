@@ -7,6 +7,8 @@ IMAGE_ALPINE = alpine:3.23.3
 include nginx/nginx.mk
 # php alpine cus ncc
 include php/php.mk
+# mariadb alpine cus ncc
+include mariadb/mariadb.mk
 
 # Mặc định khi gõ 'make' sẽ hiện hướng dẫn
 .DEFAULT_GOAL :=help
@@ -18,6 +20,8 @@ help:
 	@echo "make nginx-help - Nginx Help"
 # 	php alpine cus ncc
 	@echo "make php-help - Php help"
+# 	php alpine cus ncc
+	@echo "make mariadb-help - Mariadb help"
 
 
 pull-alpine:
