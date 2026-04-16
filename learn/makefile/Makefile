@@ -9,6 +9,8 @@ include nginx/nginx.mk
 include php/php.mk
 # mariadb alpine cus ncc
 include mariadb/mariadb.mk
+# wp-cli alpine cus ncc
+include wp-cli/wp-cli.mk
 
 # Mặc định khi gõ 'make' sẽ hiện hướng dẫn
 .DEFAULT_GOAL :=help
@@ -22,7 +24,8 @@ help:
 	@echo "make php-help - Php help"
 # 	php alpine cus ncc
 	@echo "make mariadb-help - Mariadb help"
-
+# 	wp-cli
+	@echo "make wp-cli-help - wp-cli help"
 
 pull-alpine:
 	docker pull $(IMAGE_ALPINE)
