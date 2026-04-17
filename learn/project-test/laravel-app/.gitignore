@@ -1,0 +1,23 @@
+# 1. Chặn toàn bộ mọi thứ
+/*
+
+# 2. Mở khóa "Lớp vỏ" thư mục (BẮT BUỘC)
+# Bạn phải cho phép Git đi vào các thư mục này thì nó mới thấy file bên trong
+!.gitignore
+!html/
+!html/laravel-app/
+
+# 3. Chặn lại nội dung bên trong các thư mục đó 
+# (để không bị lôi cả đống code Laravel vào)
+#html/*
+html/laravel-app/*
+
+# 4. Bây giờ mới "nhả" các file cụ thể ra
+!Dockerfile
+!html/laravel-app/composer.json
+!html/laravel-app/composer.lock
+!html/laravel-app/package.json
+!html/laravel-app/vite.config.js
+!html/laravel-app/.env.example
+
+# git check-ignore -v html/laravel-app/composer.json

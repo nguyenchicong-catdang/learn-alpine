@@ -11,6 +11,8 @@ include php/php.mk
 include mariadb/mariadb.mk
 # wp-cli alpine cus ncc
 include wp-cli/wp-cli.mk
+# laravel-app
+include laravel-app/laravel-app.mk
 
 # Mặc định khi gõ 'make' sẽ hiện hướng dẫn
 .DEFAULT_GOAL :=help
@@ -26,6 +28,8 @@ help:
 	@echo "make mariadb-help - Mariadb help"
 # 	wp-cli
 	@echo "make wp-cli-help - wp-cli help"
+# 	laravel-app
+	@echo "make laravel-app-help - Laravel App help"
 
 pull-alpine:
 	docker pull $(IMAGE_ALPINE)
