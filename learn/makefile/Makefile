@@ -2,6 +2,8 @@
 # Định nghĩa biến gốc
 PATH_PROJECT = $(shell dirname $(PWD))/project-test
 IMAGE_ALPINE = alpine:3.23.3
+APP_ENV = development
+
 # include
 # nginx alpine cus ncc
 include nginx/nginx.mk
@@ -13,6 +15,8 @@ include mariadb/mariadb.mk
 include wp-cli/wp-cli.mk
 # laravel-app
 include laravel-app/laravel-app.mk
+# adminer
+include adminer/adminer.mk
 
 # Mặc định khi gõ 'make' sẽ hiện hướng dẫn
 .DEFAULT_GOAL :=help
@@ -30,6 +34,8 @@ help:
 	@echo "make wp-cli-help - wp-cli help"
 # 	laravel-app
 	@echo "make laravel-app-help - Laravel App help"
+# 	adminer
+	@echo "make adminer-help - Help adminer"
 
 pull-alpine:
 	docker pull $(IMAGE_ALPINE)

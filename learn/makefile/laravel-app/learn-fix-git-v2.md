@@ -45,3 +45,11 @@ vi /root/.ssh/id_ed25519
 chmod 600 /root/.ssh/id_ed25519
 
 ssh -T git@github.com
+
+Cách 1 (Lười nhưng hiệu quả): Mount file từ máy thật (Windows/WSL) vào.
+
+YAML
+volumes:
+  - ~/.ssh/id_ed25519:/root/.ssh/id_ed25519:ro
+
+RUN apk add --no-cache git openssh-client
