@@ -21,15 +21,21 @@ define DOCKERFILE_CONTENT_DEV
 FROM $(IMAGE_ALPINE)
 RUN apk update && \
 	apk upgrade --no-cache && \
-	apk add --no-cache php-fpm
+	apk add --no-cache nginx php84-fpm php84-mysqli php84-session
+
+# Copy file cấu hình và entrypoint
+COPY adminer.sh /usr/local/bin/adminer.sh
+RUN chmod +x /usr/local/bin/adminer.sh
 
 #expose test 8000
 EXPOSE $(ADMINER_EXPOSE)
 
 WORKDIR $(ADMINER_WORKDIR)
 
+ENTRYPOINT ["adminer.sh"]
+
 #CMD ["php", "-S", "0.0.0.0:8888", "-t", "/var/www/html"]
-CMD ["sh", "-c", "tail -f /dev/null"]
+#CMD ["sh", "-c", "tail -f /dev/null"]
 endef
 export DOCKERFILE_CONTENT_DEV
 
@@ -61,13 +67,15 @@ adminer-docker-build-init: $(ADMINER_BUILD_STEPS)
 	@echo "DONE BUILD - adminer-docker-build-init cho $(APP_ENV)"
 
 #prepare
-_adminer-prepare:
-	mkdir -p $(ADMINER_PATH_APP)
-	mkdir -p $(ADMINER_PATH_APP)/html
+# _adminer-prepare:
+# 	mkdir -p $(ADMINER_PATH_APP)
+# 	mkdir -p $(ADMINER_PATH_APP)/html
 
 # build
 _adminer-docker-build:
 	@echo "BUILD - adminer-create-dockerfile"
+	cp -f adminer/adminer.sh $(ADMINER_PATH_APP)/adminer.sh
+
 	@echo "$(ADMINER_IMAGE)"
 # 	# mount html
 # 	APP_ENV = development

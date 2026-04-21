@@ -1,0 +1,14 @@
+services:
+ admine-alpine-ncc:
+  image: admine-alpine-ncc
+  container_name: admine-alpine-ncc
+  volumes:
+   - /home/git/learn-alpine/learn/project-test/adminer/default.conf:/etc/nginx/http.d/default.conf
+   - /home/git/learn-alpine/learn/project-test/adminer/html:/var/www/html
+  init: true
+  # dev
+  #tty: true
+  #stdin_open: true
+  #ports:
+   #- 3366:3366
+  network_mode: "host"
