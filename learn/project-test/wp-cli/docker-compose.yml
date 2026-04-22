@@ -1,0 +1,9 @@
+services:
+ wp-cli-alpine-ncc:
+  image: wp-cli-alpine-ncc
+  container_name: wp-cli-alpine-ncc
+  init: true
+  network_mode: "host"
+  env_file:
+   - .env
+  entrypoint: ["/bin/sh", "-c", "tail -f /dev/null"]

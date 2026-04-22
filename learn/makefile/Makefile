@@ -1,7 +1,9 @@
 # /home/git/learn-alpine/learn/makefile/Makefile
 # Định nghĩa biến gốc
 PATH_PROJECT = $(shell dirname $(PWD))/project-test
+PROJECT_PATH = $(shell dirname $(PWD))/project-test
 IMAGE_ALPINE = alpine:3.23.3
+ALPINE_IMAGE = alpine:3.23
 APP_ENV = development
 
 # include
@@ -17,6 +19,8 @@ include wp-cli/wp-cli.mk
 include laravel-app/laravel-app.mk
 # adminer
 include adminer/adminer.mk
+# wp-app
+include wp-app/wp-app.mk
 
 # Mặc định khi gõ 'make' sẽ hiện hướng dẫn
 .DEFAULT_GOAL :=help
@@ -36,6 +40,8 @@ help:
 	@echo "make laravel-app-help - Laravel App help"
 # 	adminer
 	@echo "make adminer-help - Help adminer"
+# 	wp-app
+	@echo "make wp-app-help"
 
 pull-alpine:
-	docker pull $(IMAGE_ALPINE)
+	docker pull $(ALPINE_IMAGE)

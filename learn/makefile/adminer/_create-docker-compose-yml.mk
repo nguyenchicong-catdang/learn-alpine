@@ -9,6 +9,8 @@ services:
    - $(ADMINER_PATH_APP)/default.conf:/etc/nginx/http.d/default.conf
    - $(ADMINER_PATH_APP)/html:/var/www/html
   init: true
+  restart: always
+  
   # dev
   #tty: true
   #stdin_open: true
