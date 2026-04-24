@@ -1,0 +1,10 @@
+services:
+ nginx-apine-ncc:
+  image: nginx-apine-ncc
+  container_name: nginx-apine-ncc
+  #init: true
+  network_mode: "host"
+  volumes:
+   - ./default.conf:/etc/nginx/http.d/default.conf
+   - ./html:/var/www/html
+  #command: tail -f >/dev/null
