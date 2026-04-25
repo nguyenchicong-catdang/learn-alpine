@@ -7,10 +7,14 @@
 ALPINE_IMAGE = alpine:3
 PROJECT_DIR = $(shell dirname $(PWD))
 PROJECT_PATH = $(PROJECT_DIR)/learn-project
+NGINX_VOLUMES_HTML =  ../nginx/html
 
 # include
 include nginx/nginx.mk
 include php-fpm/php-fpm.mk
+include adminer/adminer.mk
+include mariadb/mariadb.mk
+include wp-cli/wp-cli.mk
 
 help:
 	@echo "make help"
@@ -33,9 +37,16 @@ up: prepare
 # 	include up
 	$(MAKE) nginx-up
 	$(MAKE) php-fpm-up
+	$(MAKE) adminer-up
+	$(MAKE) mariadb-up
+	$(MAKE) wp-cli-up
+
+	docker ps
 	@echo "DONE: up"
 
 down:
 	@echo "RUN: down"
 	$(MAKE) nginx-down
+	$(MAKE) php-fpm-down
+	$(MAKE) mariadb-down
 	@echo "DONE: down"

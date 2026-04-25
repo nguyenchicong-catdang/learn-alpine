@@ -1,0 +1,10 @@
+services:
+ php-fpm-alpine-ncc:
+  image: php-fpm-alpine-ncc
+  container_name: php-fpm-alpine-ncc
+  network_mode: "host"
+  restart: always
+  volumes:
+   - ../nginx/html:/var/www/html
+  #init: true
+  #command: tail -f /dev/null

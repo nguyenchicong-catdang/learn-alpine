@@ -9,6 +9,4 @@ _nginx-docker-build:
 	docker build --network host -t $(NGINX_IAMGE) \
 		-f $(NGINX_PROJECT_PATH)/Dockerfile \
 		$(NGINX_PROJECT_PATH)
-
-	docker images
 	@echo "DONE: _nginx-docker-build"

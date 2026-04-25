@@ -10,5 +10,4 @@ _php-fpm-docker-build:
 		-f $(PHP_FPM_PROJECT_PATH)/Dockerfile \
 		$(PHP_FPM_PROJECT_PATH)
 
-	docker images
 	@echo "DONE: _php-fpm-docker-build"

@@ -14,20 +14,14 @@ _php-fpm-prepare:
 	mkdir -p $(PHP_FPM_PROJECT_PATH)
 	@echo "DONE: _php-fpm-prepare"
 
-
-php-fpm-docker-build:
-	@echo "RUN: php-fpm-docker-build"
-	$(MAKE) _php-fpm-docker-build
-	@echo "DONE: php-fpm-docker-build"
-
-php-fpm-docker-compose:
-	@echo "RUN: php-fpm-docker-compose"
-	$(MAKE) _php-fpm-docker-compose
-	@echo "DONE: php-fpm-docker-compose"
-
-php-fpm-up:
+php-fpm-up: _php-fpm-prepare
 	@echo "RUN: php-fpm-up"
-	$(MAKE) php-fpm-docker-build
+	$(MAKE) _php-fpm-docker-build
+	$(MAKE) _php-fpm-docker-compose-up
 	@echo "DONE php-fpm-up"
+
+php-fpm-down:
+	@echo "php-fpm-down"
+	$(MAKE) _php-fpm-docker-compose-down
 
 

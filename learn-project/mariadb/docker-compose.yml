@@ -1,0 +1,7 @@
+services:
+ mariadb-alpine-ncc:
+  image: mariadb-alpine-ncc
+  container_name: mariadb-alpine-ncc
+  network_mode: "host"
+  #init: true
+  #command: tail -f >/dev/null

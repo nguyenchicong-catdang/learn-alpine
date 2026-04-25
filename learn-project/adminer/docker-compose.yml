@@ -1,0 +1,5 @@
+services:
+ adminer-alpine-ncc:
+  image: adminer-alpine-ncc
+  container_name: adminer-alpine-ncc
+  network_mode: "host"

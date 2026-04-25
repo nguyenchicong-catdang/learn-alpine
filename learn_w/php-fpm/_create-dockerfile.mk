@@ -6,8 +6,15 @@ FROM $(ALPINE_IMAGE)
 RUN apk update && apk upgrade --no-cache && \
 	apk add --no-cache \
 		php84-fpm \
+		php84-mysqli \
+		php84-pdo_mysql \
+		php84-session
 
-CMD ["php84-fpm", "-D", "-R"]
+WORKDIR /var/www/html
+
+RUN chmod +x /var/www/html
+
+CMD ["php-fpm84", "-F", "-R"]
 endef
 
 export PHP_FPM_DOCKERFILE

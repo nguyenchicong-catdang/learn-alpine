@@ -6,7 +6,11 @@ services:
   image: $(PHP_FPM_IMAGE)
   container_name: $(PHP_FPM_IMAGE)
   network_mode: "host"
-  command: tail -f /def/null
+  restart: always
+  volumes:
+   - $(NGINX_VOLUMES_HTML):/var/www/html
+  #init: true
+  #command: tail -f /dev/null
 endef
 
 export PHP_FPM_DOCKER_COMPOSE_YML

@@ -7,6 +7,7 @@ services:
   container_name: $(NGINX_IAMGE)
   #init: true
   network_mode: "host"
+  restart: always
   volumes:
    - ./default.conf:/etc/nginx/http.d/default.conf
    - ./html:/var/www/html

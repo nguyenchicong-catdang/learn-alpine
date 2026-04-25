@@ -9,8 +9,7 @@ _nginx-docker-compose-up:
 	docker compose -f $(NGINX_PROJECT_PATH)/docker-compose.yml \
 		--project-directory $(NGINX_PROJECT_PATH) \
 		up -d \
-
-	docker ps
+		
 	@echo "DONE: _nginx-docker-compose"
 
 _nginx-docker-compose-down:
