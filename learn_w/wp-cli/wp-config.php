@@ -7,7 +7,7 @@
 define( 'DB_NAME',     getenv('DB_DATABASE') ?: 'wordpress' );
 define( 'DB_USER',     getenv('DB_USERNAME') ?: 'root' );
 define( 'DB_PASSWORD', getenv('DB_PASSWORD') ?: '' );
-define( 'DB_HOST',     getenv('DB_HOST')     ?: 'localhost' );
+define( 'DB_HOST',     getenv('DB_HOST')     ?: '127.0.0.1' );
 define( 'DB_CHARSET',  'utf8mb4' );
 define( 'DB_COLLATE',  '' );
 

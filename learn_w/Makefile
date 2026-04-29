@@ -8,6 +8,7 @@ ALPINE_IMAGE = alpine:3
 PROJECT_DIR = $(shell dirname $(PWD))
 PROJECT_PATH = $(PROJECT_DIR)/learn-project
 NGINX_VOLUMES_HTML =  ../nginx/html
+NGINX_CP_HTML = $(NGINX_PROJECT_PATH)/html
 
 # include
 include nginx/nginx.mk
@@ -50,3 +51,10 @@ down:
 	$(MAKE) php-fpm-down
 	$(MAKE) mariadb-down
 	@echo "DONE: down"
+
+down-v:
+	@echo "RUN: down-v"
+	$(MAKE) nginx-down
+	$(MAKE) php-fpm-down
+	$(MAKE) mariadb-down-v
+	@echo "DONE: down-v"

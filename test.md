@@ -124,6 +124,17 @@ yes y | docker exec -i mariadb-alpine-ncc mariadb-secure-installation
     wp_user
     12345
 
+https://0311575875.easyinvoice.com.vn/Account/LogOn?ReturnUrl=%2fEInvoice%2fIndex#
+
+admin
+
+Nhi@12345678
+
+nguyenchicong.catdang@gmail.com
+Cong12345@@
+0963543681
+email khôi phục: sale04.baosonco@gmail.com - Cong12345
+
 
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
     chmod +x wp-cli.phar

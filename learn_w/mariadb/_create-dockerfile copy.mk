@@ -7,15 +7,16 @@ RUN apk update && apk upgrade --no-cache && \
 	apk add --no-cache \
 		mariadb mariadb-client
 
+# RUN mariadb-install-db --user=mysql --datadir=/var/lib/mysql
+
+# RUN mkdir -p /run/mysqld && \
+# 	chown -R mysql:mysql /run/mysqld && \
+# 	chmod -R 750 /run/mysqld
+
 EXPOSE 3306
 
-COPY ./mariadb.sh /usr/local/bin/mariadb.sh
-RUN chmod +x /usr/local/bin/mariadb.sh
-
-ENTRYPOINT ["/usr/local/bin/mariadb.sh"]
-
-CMD ["mariadbd", "--user=mysql", "--console", "--bind-address=0.0.0.0", "--skip-networking=0"]
-
+#CMD ["mariadbd", "--user=mysql", "--console", "--bind-address=0.0.0.0", "--skip-networking=0"]
+CMD ["tail", "-f", "/dev/null"]
 endef
 
 export MARIADB_DOCKERFILE

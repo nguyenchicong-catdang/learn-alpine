@@ -14,6 +14,6 @@ _php-fpm-docker-compose-up:
 	docker compose -f $(PHP_FPM_PROJECT_PATH)/docker-compose.yml \
 		--project-directory $(PHP_FPM_PROJECT_PATH) up -d
 
-_php-fpm-docker-compose-dow:
-	@echo "_php-fpm-docker-compose-up"
+_php-fpm-docker-compose-down:
+	@echo "_php-fpm-docker-compose-down"
 	docker compose -f $(PHP_FPM_PROJECT_PATH)/docker-compose.yml down

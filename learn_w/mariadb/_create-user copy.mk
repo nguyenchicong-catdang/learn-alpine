@@ -4,19 +4,11 @@ include mariadb/.env
 
 _mariadb-create-user:
 	@echo "_mariadb-create-user"
-	@echo "Waiting for Mariadb to be healthy..."
-# 	vong lap
-	@until [ "$$(docker inspect --format='{{.State.Health.Status}}' $(MARIADB_NAME))" = "healthy" ]; do \
-		echo "Still starting... (health: starting)"; \
-		sleep 1; \
-	done
-
-	@echo "MariaDB is healthy! Running setup..."
+	@sleep 2
 # 	# yes y | docker exec -i mariadb-alpine-ncc mariadb-secure-installation
-# 	printf "\ny\nn\ny\ny\ny\ny" | docker exec -i mariadb-alpine-ncc mariadb-secure-installation
-	docker exec -it mariadb-alpine-ncc mariadb-secure-installation
+	printf "\n y \n n \n y \n y \n y \n y" | docker exec -i mariadb-alpine-ncc mariadb-secure-installation
 
-	@docker exec -it mariadb-alpine-ncc mariadb -u root -e \
+	docker exec -it mariadb-alpine-ncc mariadb -u root -e \
 		"CREATE USER IF NOT EXISTS '$(DB_USER)'@'$(DB_HOST)' IDENTIFIED BY '$(DB_PASSWORD)'; \
 		GRANT ALL PRIVILEGES ON *.* TO '$(DB_USER)'@'$(DB_HOST)' WITH GRANT OPTION; \
 		FLUSH PRIVILEGES;"
