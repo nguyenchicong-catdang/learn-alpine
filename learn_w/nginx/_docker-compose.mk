@@ -16,3 +16,8 @@ _nginx-docker-compose-down:
 	@echo "RUN: _nginx-docker-compose-down"
 	docker compose -f $(NGINX_PROJECT_PATH)/docker-compose.yml down
 	@echo "DONE: _nginx-docker-compose-down"
+
+_nginx-docker-compose-down-v:
+	@echo "RUN: _nginx-docker-compose-down-v"
+	docker compose -f $(NGINX_PROJECT_PATH)/docker-compose.yml down -v
+	@echo "DONE: _nginx-docker-compose-down-v"

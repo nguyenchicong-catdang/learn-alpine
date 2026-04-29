@@ -54,7 +54,9 @@ down:
 
 down-v:
 	@echo "RUN: down-v"
-	$(MAKE) nginx-down
-	$(MAKE) php-fpm-down
+	$(MAKE) nginx-down-v
+	$(MAKE) php-fpm-down-v
 	$(MAKE) mariadb-down-v
+
+	rm -rf $(PROJECT_PATH)
 	@echo "DONE: down-v"

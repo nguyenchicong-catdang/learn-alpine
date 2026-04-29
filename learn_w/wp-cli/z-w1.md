@@ -22,3 +22,13 @@ WORKDIR /var/www/html
 
 ; File: /etc/php84/php-fpm.d/www.conf
 clear_env = no
+
+define( 'UPLOADS', 'wp-content/uploads' );
+
+
+# Cập nhật giá trị và chuyển autoload sang 'no'
+wp option update thumbnail_size_w 400 --autoload=no
+
+wp db query "UPDATE wp_options SET autoload = 'no' WHERE option_name = 'thumbnail_size_w';"
+
+wp option update thumbnail_size_w 400 --autoload=yes --allow-root

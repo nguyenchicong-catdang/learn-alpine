@@ -11,17 +11,16 @@ RUN apk update && apk upgrade --no-cache && \
 		php84-session \
 		php84-gd
 
+RUN sed -i 's/upload_max_filesize =.*/upload_max_filesize = 5M/' /etc/php84/php.ini && \
+	sed -i "s/memory_limit =.*/memory_limit = 256M/" /etc/php84/php.ini && \
+	sed -i "s/post_max_size =.*/post_max_size = 64M/" /etc/php84/php.ini
 
 WORKDIR /var/www/html
 
-RUN chown -R nobody:nobody /var/www/html && \
-	chmod -R 755 /var/www/html
+#RUN chmod +x /var/www/html
 
-# entrypoint
-COPY ./php-fpm.sh /usr/local/bin/php-fpm.sh
-RUN chmod +x /usr/local/bin/php-fpm.sh
-
-ENTRYPOINT ["/usr/local/bin/php-fpm.sh"]
+RUN	chown -R nobody:nobody /var/www/html && \
+	chmod -R 775 /var/www/html
 
 CMD ["php-fpm84", "-F", "-R"]
 endef

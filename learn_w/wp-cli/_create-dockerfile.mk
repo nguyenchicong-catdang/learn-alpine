@@ -23,14 +23,15 @@ RUN curl -O $(WP_CLI_URL) && \
 	mv wp-cli.phar /usr/local/bin/wp && \
 	php -d memory_limit=512M /usr/local/bin/wp core download --path=/root/wp-app --allow-root
 
-# entripoint
-# COPY ./wp-cli.sh /usr/local/bin/wp-cli.sh
-# RUN chmod +x /usr/local/bin/wp-cli.sh
-
-# ENTRYPOINT ["/usr/local/bin/wp-cli.sh"]
 COPY ./wp-config.php /root/wp-app/wp-config.php
 
-WORKDIR /root
+# entripoint
+COPY ./wp-cli.sh /usr/local/bin/wp-cli.sh
+RUN chmod +x /usr/local/bin/wp-cli.sh
+
+ENTRYPOINT ["/usr/local/bin/wp-cli.sh"]
+
+WORKDIR /root/wp-app
 
 endef
 

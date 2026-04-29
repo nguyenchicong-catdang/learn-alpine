@@ -12,6 +12,7 @@ php-fpm-help:
 _php-fpm-prepare:
 	@echo "RUN: _php-fpm-prepare"
 	mkdir -p $(PHP_FPM_PROJECT_PATH)
+	cp -f ./php-fpm/php-fpm.sh $(PHP_FPM_PROJECT_PATH)/php-fpm.sh
 	@echo "DONE: _php-fpm-prepare"
 
 php-fpm-up: _php-fpm-prepare
@@ -23,5 +24,9 @@ php-fpm-up: _php-fpm-prepare
 php-fpm-down:
 	@echo "php-fpm-down"
 	$(MAKE) _php-fpm-docker-compose-down
+
+php-fpm-down-v:
+	@echo "php-fpm-down-v"
+	$(MAKE) _php-fpm-docker-compose-down-v
 
 

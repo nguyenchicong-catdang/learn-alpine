@@ -4,12 +4,12 @@
  */
 
 // --- Kết nối Database ---
-define( 'DB_NAME',     getenv('DB_DATABASE') ?: 'wp_database' );
-define( 'DB_USER',     getenv('DB_USERNAME') ?: 'wp_user' );
-define( 'DB_PASSWORD', getenv('DB_PASSWORD') ?: '12345' );
+define( 'DB_NAME',     getenv('DB_DATABASE') ?: 'wordpress' );
+define( 'DB_USER',     getenv('DB_USERNAME') ?: 'root' );
+define( 'DB_PASSWORD', getenv('DB_PASSWORD') ?: '' );
 define( 'DB_HOST',     getenv('DB_HOST')     ?: '127.0.0.1' );
 define( 'DB_CHARSET',  'utf8mb4' );
-define( 'DB_COLLATE',  'utf8mb4_unicode_ci' );
+define( 'DB_COLLATE',  '' );
 
 // --- Các khóa bảo mật (Nên dùng biến môi trường hoặc ghi cứng vì nó ít thay đổi) ---
 define( 'AUTH_KEY',         getenv('WP_AUTH_KEY')         ?: 'put your unique phrase here' );

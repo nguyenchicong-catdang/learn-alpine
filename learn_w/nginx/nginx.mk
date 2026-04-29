@@ -43,5 +43,10 @@ nginx-up:
 
 nginx-down:
 	@echo "RUN: nginx-down"
-	$(MAKE) nginx-docker-compose-down
+	$(MAKE) _nginx-docker-compose-down-v
 	@echo "DONE: nginx-down"
+
+nginx-down-v:
+	@echo "RUN: nginx-down-v"
+	$(MAKE) _nginx-docker-compose-down-v
+	@echo "DONE: nginx-down-v"
